@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import { Stats, StatsSpan } from './Statistics.styled';
+
 export default function Statistics({
   good,
   neutral,
@@ -7,29 +10,36 @@ export default function Statistics({
 }) {
   let span;
   if (positivePercentage > 0) {
-    span = <span>{positivePercentage}%</span>;
+    span = <StatsSpan> {positivePercentage}%</StatsSpan>;
   } else {
-    span = <span>0%</span>;
+    span = <StatsSpan> 0%</StatsSpan>;
   }
   return (
     <div>
-      <p>Statistics</p>
-      <p>
-        Good: <span>{good}</span>
-      </p>
-      <p>
-        Neutral: <span>{neutral}</span>
-      </p>
-      <p>
-        Bad: <span>{bad}</span>
-      </p>
-      <p>
-        Total: <span>{total}</span>
-      </p>
-      <p>
+      <Stats>
+        Good: <StatsSpan> {good}</StatsSpan>
+      </Stats>
+      <Stats>
+        Neutral: <StatsSpan> {neutral}</StatsSpan>
+      </Stats>
+      <Stats>
+        Bad: <StatsSpan> {bad}</StatsSpan>
+      </Stats>
+      <Stats>
+        Total: <StatsSpan> {total}</StatsSpan>
+      </Stats>
+      <Stats>
         Positive feedback:
         {span}
-      </p>
+      </Stats>
     </div>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
+};
