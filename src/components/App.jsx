@@ -7,9 +7,9 @@ import { Wrap } from './App.styled';
 
 export class App extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    Good: 0,
+    Neutral: 0,
+    Bad: 0,
   };
 
   stateKey = Object.keys(this.state);
@@ -25,7 +25,7 @@ export class App extends Component {
 
   countPositiveFeedbackPercentage = () => {
     const totalCount = this.countTotalFeedback();
-    return ((this.state.good / totalCount) * 100).toFixed(2);
+    return ((this.state.Good / totalCount) * 100).toFixed(2);
   };
 
   render() {
@@ -42,9 +42,9 @@ export class App extends Component {
             <Notification message={'There is no feedback'} />
           ) : (
             <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              good={this.state.Good}
+              neutral={this.state.Neutral}
+              bad={this.state.Bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />

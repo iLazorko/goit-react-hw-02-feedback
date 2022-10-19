@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 const buttonColor = ({ name }) => {
   switch (name) {
-    case 'good':
+    case 'Good':
       return '#02f902';
-    case 'neutral':
+    case 'Neutral':
       return '#8c8cff';
-    case 'bad':
+    case 'Bad':
       return '#e75555';
     default:
       return '#ffffff';
@@ -30,7 +30,7 @@ export const Button = styled.button`
   font-size: 16px;
   width: 100px;
   height: 40px;
-  text-transform: uppercase;
+
 
   &:hover,
   &:focus {
